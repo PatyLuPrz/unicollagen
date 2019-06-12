@@ -1,7 +1,7 @@
 #fondoLogin{
-    background-image: url(/static/Files/Images/fondo-login.jpg);
+    background-image: url(/static/Files/Images/fondo.jpg);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: cover; 
    }
