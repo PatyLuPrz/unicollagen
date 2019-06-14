@@ -3,5 +3,5 @@ from Apps.Main.views import login, menu
 
 urlpatterns = [
     path(r'', login),
-    path('/menu', menu),
+    path('menu', menu),
 ]

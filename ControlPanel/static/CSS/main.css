@@ -1,5 +1,5 @@
 #fondoLogin{
-    background-image: url(/static/Files/Images/fondo.jpg);
+    background-image: url('/static/Files/Images/fondo.jpg');
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

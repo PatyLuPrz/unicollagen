@@ -9,5 +9,12 @@ def index(request):
 def insert(request):
     return render(request, 'Productos/insert.html')
 
-def new(request):
-    return render(request, 'Productos/new.html')
+def view(request):
+    return render(request, 'Productos/view.html')
+
+def update(request):
+    return render(request, 'Productos/update.html')
+
+def delete(request):
+    return render(request, 'Productos/delete.html')
+
