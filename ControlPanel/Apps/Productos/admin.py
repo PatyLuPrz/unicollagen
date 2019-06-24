@@ -1,6 +1,9 @@
 from django.contrib import admin
-from Apps.Productos.models import Producto_espanol, Producto_frances, Producto_ingles
-# Register your models here.
-admin.site.register(Producto_espanol)
-admin.site.register(Producto_frances)
-admin.site.register(Producto_ingles)
+
+# from Apps.Productos.models import Espanol, Frances, Ingles, Existencia, Producto
+# # Register your models here.
+# admin.site.register(Espanol)
+# admin.site.register(Frances)
+# admin.site.register(Ingles)
+# admin.site.register(Producto)
+# admin.site.register(Existencia)

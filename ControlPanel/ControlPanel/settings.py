@@ -76,8 +76,10 @@ WSGI_APPLICATION = 'ControlPanel.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# Base de datos local
 DATABASES = {
     'default': {
+        'init_command': "SET sql_mode='STRICT_ALL_TABLES'",
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'unicollagen',
         'USER': 'unicollagen',
@@ -87,6 +89,19 @@ DATABASES = {
     }
 }
 
+# Base de datos remota (Rapberry Server)
+
+# DATABASES = {
+#     'default': {
+#         'init_command': "SET sql_mode='STRICT_ALL_TABLES'",
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'unicollagen',
+#         'USER': 'unicollagen',
+#         'PASSWORD': 'unicollagen.1012',
+#         'HOST': 'notricsoluinc.ddns.net',
+#         'PORT':'3306',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
