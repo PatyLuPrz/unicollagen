@@ -1,12 +1,50 @@
 {% extends 'Base/master.html' %}
 
 {% block content %}
+    {% if usuario %}
     <center>
-        <h4> Index </h4>
-        <a href="/usuarios/insert">Insert</a> | 
-        <a href="/usuarios/update">Update</a> | 
-        <a href="/usuarios/delete">Delete</a> | 
-        <a href="/usuarios/view">View</a>
+        <h4> Usuarios </h4>
+        <p>
+            Usuarios del sistema de control de Unicollagen
+            <br><a class="btn btn-primary" href="/usuarios/insert">Agregar nuevo</a>
+        </p>
+        
     </center>
     
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td> ID </td>
+                    <td> Nombre </td>
+                    <td> Apellidos </td>
+                    <td> Correo </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                    {% for x in usuario %}
+                        <tr>
+                            
+                            <td><a href="view/x.id">{{ x.id }}</a>  </td>
+                            <td><a href="view/x.id"> {{ x.nombre_usuario }}</a> </td>
+                            <td><a href="view/x.id"> {{ x.apellido_paterno_usuario}} {{ x.apellido_materno_usuario}}</a> </td>
+                            <td><a href="view/x.id"> {{ x.correo_usuario }}</a> </td>
+                            <td> <a href="/update" class="btn btn-ligth">Editar</a> </td>
+                            <td> <a href="/delete" class="btn btn-ligth">Borrar</a> </td>
+                        </tr>
+                    {% endfor %}
+                
+            </tbody>
+        </table>
+        {% else %}
+            <center>
+                <br><br>
+                <h1>Aqui no hay nada que mostrar</h1>            
+                <h6>Añade un nuevo registro</h6>
+                <a class="btn btn-primary" href="/usuarios/insert">Agregar nuevo</a>
+            </center>
+        {% endif %}
+    </div>
 {% endblock %}

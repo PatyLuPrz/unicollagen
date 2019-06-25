@@ -1,5 +1,14 @@
 {% extends 'Base/master.html' %}
 
 {% block content %}
-    <h4> Insert </h4>
+    <div class="container">
+        <br>
+        <h4>Agregar nuevo usuario</h4>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
+    
 {% endblock %}

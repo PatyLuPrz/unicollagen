@@ -1,13 +1,24 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
+from Apps.Usuarios.models import Usuario
+from Apps.Usuarios.forms import UsuarioForm
 # Create your views here.
 
 def index(request):
-    return render(request, 'Usuarios/index.html')
+    usuario = Usuario.objects.all()
+    contexto = {'usuario':usuario}
+    return render(request, 'Usuarios/index.html',contexto)
 
 def insert(request):
-    return render(request, 'Usuarios/insert.html')
+    if request.method == 'POST':
+        form = UsuarioForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('/usuarios')
+    else:
+        form = UsuarioForm()
+    return render(request, 'Usuarios/insert.html', {'form':form})
 
 def view(request):
     return render(request, 'Usuarios/view.html')
