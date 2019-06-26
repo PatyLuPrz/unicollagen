@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from Apps.Usuarios.models import Usuario
-from Apps.Usuarios.forms import UsuarioForm
+from Apps.Usuarios.forms import UsuarioForm, UsuarioNoPasswordForm
 # Create your views here.
 
 def index(request):
@@ -23,8 +23,20 @@ def insert(request):
 def view(request):
     return render(request, 'Usuarios/view.html')
 
-def update(request):
-    return render(request, 'Usuarios/update.html')
+def update(request, id_usuario):
+    usuario = Usuario.objects.get(id = id_usuario)
+    if request.method == 'GET':
+        form = UsuarioNoPasswordForm(instance=usuario)
+    else:
+        form = UsuarioNoPasswordForm(request.POST, instance=usuario)
+        if form.is_valid():
+            form.save()
+        return redirect('/usuarios')
+    return render(request, 'Usuarios/update.html', {'form':form})
 
-def delete(request):
-    return render(request, 'Usuarios/delete.html')
+def delete(request, id_usuario):
+    usuario = Usuario.objects.get(id = id_usuario)
+    if request.method == 'POST':
+        usuario.delete()
+        return redirect('/usuarios')
+    return render(request, 'Usuarios/delete.html', {'usuario':usuario})

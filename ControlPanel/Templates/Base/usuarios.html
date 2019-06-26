@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{% static 'CSS/dataTables.bootstrap.min.css' %}"> 
     <!-- <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css"> -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Unigollagen</title>
+    <title>Unicollagen</title>
 </head>
 <body>
     
@@ -24,10 +24,11 @@
               </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar16">
                 <span class="navbar-toggler-icon"></span>
               </button>
+              
               <div class="collapse navbar-collapse" id="navbar16">
                 <ul class="navbar-nav ml-auto">
-                  <li class="nav-item"><a class="nav-link" href="https://www.unicollagen.com.mx">Ver sitio principal</a></li>
-                </ul> <a class="btn navbar-btn ml-md-2 btn-light text-dark">Añadir usuario</a>
+                    <li class="nav-item"><a class="nav-link" href="/menu">Volver al menu principal</a></li>
+                </ul> <a href="/usuarios/insert" class="btn navbar-btn ml-md-2 btn-light text-dark">Añadir usuario</a>
               </div>
             </div>
           </nav>
@@ -53,6 +54,11 @@
             </div>
           </div>
     {% endblock %}
+    <script src="{% static 'JS/jquery-1.12.4.js' %}"></script>
+    <script src="{% static 'JS/dataTables.bootstrap.min.js' %}"></script>
+    <script src="{% static 'JS/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'JS/bootstrap.js' %}"></script>
+    <script src="{% static 'JS/control.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
