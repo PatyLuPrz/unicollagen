@@ -1,5 +1,28 @@
 {% extends 'Base/master.html' %}
 
 {% block content %}
-    <h4> View </h4>
+    
+<div class="container">
+    <h4> {{ producto.nombre_producto }} </h4>
+    <strong> Marca: </strong> <i> {{ producto.marca_producto }} </i> <br>
+    <strong> Presentacion: </strong> <i> 
+        {% if producto.presentacion_producto == '1' %}    
+        100 g
+        {% elif producto.presentacion_producto == '2' %}
+        50 g
+        {% else %}
+        25 g
+        {% endif %}
+    </i> <br>
+    <strong> Tipo: </strong> <i> 
+        {% if producto.tipo_producto == '1' %}    
+        cremas
+        {% elif producto.tipo_producto == '2' %}
+        otro        
+        {% endif %} </i> <br>
+    <strong> Descripcion: </strong> <i> {{ producto.descripcion_producto }} </i> <br>
+    <strong> Recomendacion: </strong> <i> {{ producto.recomendacion_producto }} </i> <br>
+    <strong> Beneficios: </strong> <i> {{ producto.beneficios_producto }} </i> <br>
+    </div>
 {% endblock %}
+

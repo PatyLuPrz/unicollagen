@@ -1,31 +1,51 @@
 from django.shortcuts import render, redirect
-
 from django.http import HttpResponse
 
-from Apps.Productos.forms import EspanolForm
+from Apps.Productos.models import Espanol
+from Apps.Productos.forms import EspanolForm, InglesForm
 # Create your views here.
 
 
 def index(request):
-    return render(request, 'Productos/index.html')
+    producto = Espanol.objects.all()
+    contexto = {'producto':producto}
+    return render(request, 'Productos/index.html', contexto)
 
 def insert(request):
     if request.method == 'POST':
         form = EspanolForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('/productos')
+        return redirect('/productos/insert/ingles')
     else:
         form = EspanolForm()
-
     return render(request, 'Productos/insert.html',{'form':form})
 
-def view(request):
-    return render(request, 'Productos/view.html')
+def view(request, id_producto):
+    producto = Espanol.objects.get(id = id_producto)
+    contexto = {'producto':producto}
+    return render(request, 'Productos/view.html', contexto)
 
-def update(request):
-    return render(request, 'Productos/update.html')
+def update(request, id_producto):
+    producto = Espanol.objects.get(id = id_producto)
+    if request.method == 'GET':
+        form = EspanolForm(instance=producto)
+    else:
+        form = EspanolForm(request.POST, instance=producto)
+        if form.is_valid():
+            form.save()
+        return redirect('/productos')
+    return render(request, 'Productos/update.html', {'form':form})
 
 def delete(request):
     return render(request, 'Productos/delete.html')
 
+def ingles(request):
+    if request.method == 'POST':
+        form = InglesForm(request.POST, instance=contexto)
+        if form.is_valid():
+            form.save()
+        return redirect('/productos')
+    else:
+        form = InglesForm()
+    return render(request, 'Productos/ingles_insert.html',{'form':form})

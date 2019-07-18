@@ -1,12 +1,73 @@
 {% extends 'Base/master.html' %}
 
+{% block header %}
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+            <div class="container"> <a class="navbar-brand" href="/menu">
+                <i class="fa d-inline fa-lg fa-stop-circle"></i>
+                <b> Panel de Control de Unicollagen</b>
+              </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar16">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              
+              <div class="collapse navbar-collapse" id="navbar16">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/menu">Volver al menu principal</a></li>
+                </ul> <a href="/productos/insert" class="btn navbar-btn ml-md-2 btn-light text-dark">Añadir producto</a>
+              </div>
+            </div>
+          </nav>
+{% endblock %}
+
+
 {% block content %}
-    <center>
-        <h4> Index </h4>
-        <a href="/productos/insert">Insert</a> | 
-        <a href="/productos/update">Update</a> | 
-        <a href="/productos/delete">Delete</a> | 
-        <a href="/productos/view">View</a>
-    </center>
+    {% if producto %}
     
+    <div class="container">
+            <center>
+                <br>
+                <h4> Productos </h4>
+            </center>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <td> ID </td>
+                            <td> Nombre </td>
+                            <td> Marca </td>
+                            <td> Presentacion </td>
+                            <td> Tipo </td>
+                            <td> Descripcion </td>
+                            <td> Recomendacion </td>
+                            <td> Beneficios </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            {% for x in producto %}
+                                <tr>
+                                    <td><a href="view/{{ x.id }}">{{ x.id }}</a>  </td>
+                                    <td><a href="view/{{ x.id }}"> {{ x.nombre_producto }}</a> </td>
+                                    <td><a href="view/{{ x.id }}"> {{ x.marca_producto}} </a> </td>
+                                    <td><a href="view/{{ x.id }}"> {{ x.presentacion_producto }}</a> </td>
+                                    <td><a href="view/{{ x.id }}"> {{ x.tipo_producto }}</a> </td>
+                                    <td><a href="view/{{ x.id }}"> {{ x.descripcion_producto }}</a> </td>
+                                    <td><a href="view/{{ x.id }}"> {{ x.recomendacion_producto }}</a> </td>
+                                    <td><a href="view/{{ x.id }}"> {{ x.beneficios_producto }}</a> </td>
+                                    <td> <a href="update/{{ x.id }}" class="btn btn-ligth">Editar</a> </td>
+                                    <td> <a href="delete/{{ x.id }}" class="btn btn-ligth">Borrar</a> </td>
+                                </tr>
+                            {% endfor %}
+                        
+                    </tbody>
+                </table>
+              </div>
+        {% else %}
+            <center>
+                <br><br>
+                <h1>Aqui no hay nada que mostrar</h1>            
+                <h6>Añade un nuevo registro con el botón de arriba</h6>
+            </center>
+        {% endif %}
+    </div>
 {% endblock %}

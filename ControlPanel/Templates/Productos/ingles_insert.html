@@ -1,0 +1,24 @@
+{% extends 'Base/master.html' %}
+
+{% block content %}
+<div class="container">
+        <br>
+        <h4>Datos de producto en Ingles</h4>
+        <small>
+            Se ha hecho una traducción automatica de los datos en español.
+            Puedes modificar la trducción ahora o más adelante si lo deseas
+        </small>
+    </br>Producto que se esta modificando: 
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="btn-group" data-toggle="buttons">
+                <label class="">
+                    <input type="checkbox" name="" id="" checked autocomplete="off" required> 
+                    <small>Ál marcar esta casilla, se da por entendido que el usuario conoce las concecuencias de usar la traducción automatica</small>
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Siguiente</button>
+        </form>
+    </div>
+{% endblock %}
