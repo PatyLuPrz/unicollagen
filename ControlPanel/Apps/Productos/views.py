@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-
 from Apps.Productos.models import Espanol
 from Apps.Productos.forms import EspanolForm, InglesForm
-# Create your views here.
-
+from google.cloud import translate
+import json
 
 def index(request):
     producto = Espanol.objects.all()
@@ -40,12 +39,10 @@ def update(request, id_producto):
 def delete(request):
     return render(request, 'Productos/delete.html')
 
-def ingles(request):
-    if request.method == 'POST':
-        form = InglesForm(request.POST, instance=contexto)
-        if form.is_valid():
-            form.save()
-        return redirect('/productos')
-    else:
-        form = InglesForm()
-    return render(request, 'Productos/ingles_insert.html',{'form':form})
+def ingles(request,id_producto):
+    producto = Espanol.objects.get(id = id_producto)
+    translate_client = translate.Client.from_service_account_json('keys.json')
+    producto['']
+    hola = translate_client.translate('Estoy vivo!')
+    print(hola)
+    return HttpResponse(hola['translatedText'])
