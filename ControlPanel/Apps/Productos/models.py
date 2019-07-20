@@ -10,6 +10,8 @@ class Espanol(models.Model):
     descripcion_producto = models.TextField()
     recomendacion_producto = models.TextField()
     beneficios_producto = models.TextField()
+    existe_ingles = models.IntegerField(default='0')
+    existe_frances = models.IntegerField(default='0')
 
 class Ingles(models.Model):
     nombre_producto_ingles = models.CharField(max_length=250)
