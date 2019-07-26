@@ -51,6 +51,7 @@ class InglesForm(forms.ModelForm):
         model = Ingles
 
         fields = [
+            'producto',
             'nombre_producto_ingles',
             'marca_producto_ingles',
             'presentacion_producto_ingles',
@@ -60,6 +61,7 @@ class InglesForm(forms.ModelForm):
             'beneficios_producto_ingles',
         ]
         labels = {
+            'producto':'Producto al que pertenece esta traduccion',
             'nombre_producto_ingles':'Nombre del producto',
             'marca_producto_ingles_ingles':'Marca del producto',
             'presentacion_producto_ingles_ingles':'Tipo de presentacion del producto',
@@ -75,11 +77,12 @@ class InglesForm(forms.ModelForm):
             ('2','25 g'),
         ]
         selectTipo = [
-            ('1','cremas'),
-            ('2','otros'),
+            ('1','Creams'),
+            ('2','Others'),
         ]
 
         widgets = {
+            'producto':forms.Select(attrs={'class':'form-control'}),
             'nombre_producto_ingles':forms.TextInput(attrs={'class':'form-control'}),
             'marca_producto_ingles':forms.TextInput(attrs={'class':'form-control'}),
             'presentacion_producto_ingles':forms.Select(attrs={'class':'form-control'}, choices=selectPresentacion),

@@ -12,6 +12,11 @@ class Espanol(models.Model):
     beneficios_producto = models.TextField()
     existe_ingles = models.IntegerField(default='0')
     existe_frances = models.IntegerField(default='0')
+    
+    def __str__(self):
+        return self.nombre_producto
+    
+    
 
 class Ingles(models.Model):
     nombre_producto_ingles = models.CharField(max_length=250)
@@ -22,6 +27,8 @@ class Ingles(models.Model):
     recomendacion_producto_ingles = models.TextField()
     beneficios_producto_ingles = models.TextField()
     producto =  models.OneToOneField(Espanol, null=True,blank=True, on_delete=models.CASCADE)
+
+    
 
 class Frances(models.Model):
     nombre_producto_frances = models.CharField(max_length=250)

@@ -1,10 +1,24 @@
 {% extends 'Base/master.html' %}
 
 {% block content %}
-Si puedes leer esto, significa que ya jalo esta madre.
-<br><br><br><br>
-{{ dicc.nombre }} <br>
-{{ dicc.presentacion }} <br>
-{{ dicc.descripcion }} <br>
-{{ dicc.descripcion }} <br>
+<div class="container">
+    <form method="POST">
+        Se ha hecho una trducción automatica de los datos en español. <br>
+        Queda a criterio del usuario si usar esta traduccion o si añadir una propia<br><br>
+        {% csrf_token %}
+        {{ contexto.as_p}}
+        <strong>Nombre:</strong> {{ productos.nombre }} <br>
+        <strong>Marca:</strong> {{ productos.marca }} <br>
+        <strong>Presentacion:</strong> {{ productos.presentacion }} <br>
+        <strong>Tipo:</strong> {{ productos.tipo }} <br>
+        <strong>Descripcion:</strong> {{ productos.descripcion }} <br>
+        <strong>Recomendacion:</strong> {{ productos.recomendacion }} <br>
+        <strong>Beneficios:</strong> {{ productos.beneficios }} <br><br><br>
+        <button class="btn btn-primary" type="submit">Guardar traduccion</button>
+    </form>
+    <br><a class="btn <a name="" id="" class="btn btn-primary" href="/productos/others" role="button">Editar traduccion (Añadir una propia)</a>
+</div>
+
+
+
 {% endblock %}
