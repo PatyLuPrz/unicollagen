@@ -91,3 +91,5 @@ class InglesForm(forms.ModelForm):
             'recomendacion_producto_ingles':forms.Textarea(attrs={'class':'form-control'}),
             'beneficios_producto_ingles':forms.Textarea(attrs={'class':'form-control'}),
         }
+
+

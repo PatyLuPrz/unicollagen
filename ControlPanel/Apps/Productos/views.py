@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from Apps.Productos.models import Espanol, Ingles
+from Apps.Productos.models import Espanol, Ingles, Precio, Frances, Existencia
 from Apps.Productos.forms import EspanolForm, InglesForm
 from google.cloud import translate
 import json
@@ -15,14 +15,34 @@ def insert(request):
         form = EspanolForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('/productos/insert/ingles')
+        return redirect('/productos')
     else:
         form = EspanolForm()
     return render(request, 'Productos/insert.html',{'form':form})
 
 def view(request, id_producto):
     producto = Espanol.objects.get(id = id_producto)
-    contexto = {'producto':producto}
+    try:
+        ingles = Ingles.objects.get(producto_id = id_producto)
+    except Ingles.DoesNotExist as a:
+        print("Error al encontrar coincidencias(ingles): ",a.args)
+        ingles = None
+    try:
+        frances = Frances.objects.get(producto_id = id_producto)
+    except Frances.DoesNotExist as b:
+        print("Error al encontrar coincidencias(frances): ",b.args)
+        frances = None
+    try:
+        precios = Precio.objects.get(producto_id = id_producto)
+    except Precio.DoesNotExist as c:
+        print("Error al encontrar coincidencias(precio): ",c.args)
+        precios = None
+    try:
+        stock = Existencia.objects.get(producto_id = id_producto)
+    except Existencia.DoesNotExist as d:
+        print("Error al encontrar coincidencias(existencias): ",d.args)
+        stock = None
+    contexto = {'producto':producto,'ingles':ingles,'frances':frances,'precios':precios,'stock':stock}
     return render(request, 'Productos/view.html', contexto)
 
 def update(request, id_producto):
@@ -71,18 +91,9 @@ def TraducirIngles(id_producto):
     producto = Espanol.objects.get(id=id_producto)
     marca = producto.marca_producto
     traduccion = translate_client.translate(marca)
-    
-    if producto.tipo_producto == '1':
-        tipo_producto = 'cream'
-    else:
-        tipo_producto = 'other'
 
-    if producto.presentacion_producto == '1':
-        presentacion_producto = '100 g'
-    elif producto.presentacion_producto == '2':
-        presentacion_producto = '50 g'
-    if producto.presentacion_producto == '3':
-        presentacion_producto = '25 g'
+    tipo_producto = producto.tipo_producto
+    presentacion_producto = producto.presentacion_producto
 
     nombre_producto = translate_client.translate(producto.nombre_producto)
     marca_producto = translate_client.translate(producto.marca_producto)
