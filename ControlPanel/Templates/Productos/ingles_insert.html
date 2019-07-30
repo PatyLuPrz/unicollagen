@@ -9,16 +9,16 @@
         {{ contexto.as_p}}
         <strong>Nombre:</strong> {{ productos.nombre }} <br>
         <strong>Marca:</strong> {{ productos.marca }} <br>
-        {% if producto.presentacion == '1': %}
+        {% if producto.presentacion == '1' %}
             <strong>Presentacion:</strong> 100 g <br>    
-        {% elif producto.presentacion == '2': %}
+        {% elif producto.presentacion == '2' %}
             <strong>Presentacion:</strong> 50 g <br>    
-        {% elif producto.presentacion == '3': %}
+        {% elif producto.presentacion == '3' %}
             <strong>Presentacion:</strong> 25 g <br>    
         {% endif %}
-        {% if producto.tipo == '1': %}
+        {% if producto.tipo == '1' %}
             <strong>Presentacion:</strong> Cream <br>    
-        {% else: %}
+        {% else %}
             <strong>Presentacion:</strong> Others <br>    
         {% endif %}
         <strong>Descripcion:</strong> {{ productos.descripcion }} <br>
