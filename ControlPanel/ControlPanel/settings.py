@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+import django_heroku
+
 from django.urls import reverse
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -158,3 +160,5 @@ STATICFILES_DIRS = [
 
 LOGIN_REDIRECT_URL = '/menu'
 LOGOUT_REDIRECT_URL = '/login/'
+
+django_heroku.settings(locals())
