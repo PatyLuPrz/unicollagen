@@ -17,7 +17,13 @@ from django.urls import reverse
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -53,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'ControlPanel.urls'
@@ -80,31 +87,31 @@ WSGI_APPLICATION = 'ControlPanel.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 # Base de datos local
-DATABASES = {
-    'default': {
-        'init_command': "SET sql_mode='STRICT_ALL_TABLES'",
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'unicollagen',
-        'USER': 'unicollagen',
-        'PASSWORD': '101217.2019',
-        'HOST': 'localhost',
-        'PORT':'3306',
-    }
-}
-
-# Base de datos remota (Rapberry Server)
-
 # DATABASES = {
 #     'default': {
 #         'init_command': "SET sql_mode='STRICT_ALL_TABLES'",
 #         'ENGINE': 'django.db.backends.mysql',
 #         'NAME': 'unicollagen',
 #         'USER': 'unicollagen',
-#         'PASSWORD': 'unicollagen.1012',
-#         'HOST': 'notricsoluinc.ddns.net',
+#         'PASSWORD': '101217.2019',
+#         'HOST': 'localhost',
 #         'PORT':'3306',
 #     }
 # }
+
+# Base de datos remota (Rapberry Server)
+
+DATABASES = {
+    'default': {
+        'init_command': "SET sql_mode='STRICT_ALL_TABLES'",
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'unicollagen',
+        'USER': 'unicollagen',
+        'PASSWORD': 'unicollagen.1012',
+        'HOST': 'notricsoluinc.ddns.net',
+        'PORT':'3306',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
