@@ -104,10 +104,10 @@ DATABASES = {
     'default': {
         'init_command': "SET sql_mode='STRICT_ALL_TABLES'",
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'unicollagen',
-        'USER': 'unicollagen',
-        'PASSWORD': 'unicollagen.1012',
-        'HOST': 'notricsoluinc.ddns.net',
+        'NAME': 'e93zda8gj0jpk5f7',
+        'USER': 'ozn0fadlkv93fc8x',
+        'PASSWORD': 'yp0fzhqj7os5cptc',
+        'HOST': 'if0ck476y7axojpg.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
         'PORT':'3306',
     }
 }
