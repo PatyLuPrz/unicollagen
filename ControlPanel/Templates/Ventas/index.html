@@ -1,9 +1,41 @@
 {% extends 'Base/master.html' %}
 
 {% block content %}
-    <div class="row">
-        {% for x in ventas %}
-        
+
+    <div class="container">
+        <div class="table-responsive">
+        {% if ventas %}
+        <br>
+        <h4>Listado de ventas</h4>
+        <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Total</th>
+                        <th>Cantidad de productos</th>
+                    </tr>
+                </thead>
+            {% for x in ventas %}
+                <tbody>
+                    <tr>
+                        <td scope="row"><a href="view/{{ x.id }}">{{ x.id }}</a></td>
+                        <td><a href="view/{{ x.id }}">{{ x.total_a_pagar_venta }}</td></a>
+                        <td><a href="view/{{ x.id }}">{{ x.total_productos_venta }}</a></td>
+                    </tr>
+                </tbody>
+            {% endfor %}
+        </table>
+        {% else %}
+        <div class="container">
+            <center>
+            <br><br>
+            <img height="250px" src="/static/Files/Icons/035-chess.png"><br><br>
+            <h4>Aqui no hay nada</h4>
+            <small>Cuando de registre una venta, aqui apareceran los datos.</small>
+            </center>
+        </div>
+        {% endif %}
+        </div>
     </div>
     
 {% endblock %}

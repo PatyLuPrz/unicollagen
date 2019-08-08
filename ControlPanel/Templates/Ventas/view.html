@@ -1,8 +1,32 @@
 {% extends 'Base/master.html' %}
 
 {% block content %}
-    <center>
-        <h4> View </h4>
-    </center>
-    
+    <div class="container-fluid">
+
+        detalle <br>
+
+        {% for x in detalle %}
+            {{ x.existencia }} <br>
+            {{ x.producto_id }} <br>
+            {{ x.venta_id }} <br>
+        {% endfor %}
+
+        cliente <br>
+
+        {% for y in cliente %}
+            {{ y.nombre_cliente }} <br>
+            {{ y.apellido_paterno_cliente }} <br>
+        {% endfor %}
+
+        direccion <br>
+        {% for z in direccion %}
+            {{ z.calle_direccion }} <br>
+            {{ z.colonia_direccion }} <br>
+        {% endfor %}
+        Lista de productos en la venta <br>
+        {% for a in productos %}
+            {{ a }} <br>
+        {% endfor %}
+
+    </div>
 {% endblock %}

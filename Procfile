@@ -1,1 +1,1 @@
-web: gunicorn ControlPanel.wsgi
+"web: gunicorn ControlPanel.wsgi" 
