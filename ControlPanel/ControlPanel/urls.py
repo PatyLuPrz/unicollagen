@@ -16,11 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('productos/', include ('Apps.Productos.urls')),
     path('usuarios/', include ('Apps.Usuarios.urls')),
     path('',include('Apps.Main.urls')),
     path('ventas/',include('Apps.Ventas.urls')),
+]
+
+#Add Django site authentication urls (for login, logout, password management)
+urlpatterns += [
+    path(r'accounts/', include('django.contrib.auth.urls')),
 ]
 

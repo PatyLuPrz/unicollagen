@@ -1,32 +1,86 @@
 {% extends 'Base/master.html' %}
 
 {% block content %}
-    <div class="container-fluid">
+    <div class="container">
+        
+    <br><br>
 
-        detalle <br>
+        
+            <h3> Información de la venta </h3> <br>
+            Productos vendidos: {{ ventas.total_productos_venta }} <br>
+                        <div class="container">
+                                <div class="row" >
+                                  <div class="col-md-6">
+                                    <strong>Producto</strong> <br>
+                                    {% for i in productos %} 
+                                        {{ i }} <br>
+                                    {% endfor %}
+                                  </div>
+                                  <div class="col-md-6">
+                                    <strong>Cantidad</strong> <br>
+                                    {% for x in detalle %}
+                                        {{ x.existencia }} <br>
+                                    {% endfor %}    
+                                  </div>
+                                </div>
+                              </div>
+             <strong> Total pagado: $ {{ ventas.total_a_pagar_venta }} <br></strong>
+            <br><h4> Información del cliente </h4> <br>
+                {% for y in cliente %}
+                    <strong>Nombre: </strong> <i> {{ y.nombre_cliente }} {{ y.apellido_paterno_cliente }} {{ y.apellido_materno_cliente }} </i> <br>
+                    <strong>E-mail: </strong> <i> {{ y.correo_cliente }} </i> <br>
+                {% endfor %}
+                <br><h5> Direccion de envio: </h5> <br>
+                {% for z in direccion %}
 
-        {% for x in detalle %}
-            {{ x.existencia }} <br>
-            {{ x.producto_id }} <br>
-            {{ x.venta_id }} <br>
-        {% endfor %}
-
-        cliente <br>
-
-        {% for y in cliente %}
-            {{ y.nombre_cliente }} <br>
-            {{ y.apellido_paterno_cliente }} <br>
-        {% endfor %}
-
-        direccion <br>
-        {% for z in direccion %}
-            {{ z.calle_direccion }} <br>
-            {{ z.colonia_direccion }} <br>
-        {% endfor %}
-        Lista de productos en la venta <br>
-        {% for a in productos %}
-            {{ a }} <br>
-        {% endfor %}
-
-    </div>
+                
+                <table class="table table-borderless">
+                        <thead>
+                            <tr>
+                                <td> <strong> Calle: </strong>  </td>
+                                <td> <i> {{ z.calle_direccion }}  </i>  </td>
+                            </tr>
+                                <td> <strong> Colonia:  </strong> </td>
+                                <td> <i> {{ z.colonia_direccion }}  </i> </td>
+                            <tr>    
+                                <td> <strong>  Numero exterior: </strong>  </td>
+                                <td> <i> {{ z.numero_ext_direccion }}  </i> </td>
+                            </tr>
+                            <tr>    
+                                <td> <strong> Numero interior: </strong> </td>
+                                <td> <i> {{ z.numero_int_direccion }}  </i> </td>
+                            </tr>
+                            <tr>    
+                                <td> <strong> Ciudad: </strong> </td>
+                                <td> <i> {{ z.ciudad_direccion }}  </i> </td>
+                            </tr>
+                            <tr>    
+                                <td> <strong> Estado: </strong>  </td>
+                                <td> <i> {{ z.estado_direccion }}  </i> </td>
+                            </tr>
+                            <tr>    
+                                <td> <strong> Pais: </strong>  </td>
+                                <td> <i> {{ z.pais_direccion }}  </i> </td>
+                            </tr>
+                            <tr>    
+                                <td> <strong> Codigo Postal: </strong> </td>
+                                <td> <i> {{ z.codigo_postal_direccion }}  </i> </td>
+                            </tr>
+                            
+                        </thead>
+                        <tbody>
+                            <tr>
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            </tr>
+                        </tbody>
+                    </table>
+                {% endfor %}
+        </div>
 {% endblock %}

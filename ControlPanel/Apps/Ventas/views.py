@@ -47,8 +47,17 @@ def view(request,id_venta):
     print(dir(otherList))
     print(otherList)
     print('********')
+    lista_nombre_productos=[]
     for i in otherList:
-        print(i)
+        string = str(i)
+        lista_nombre_productos.append(string)
+    print('++++++++++++')
+    print(lista_nombre_productos)
+    print(type(lista_nombre_productos))
+    print(type(lista_nombre_productos[0]))
+
+    for k in lista_nombre_productos:
+        print(k)
     # producto_id = '1'
     # productos = Espanol.objects.get(id=producto_id)
     # detalle = Detalle.objects.get(id=id_producto)
@@ -56,5 +65,5 @@ def view(request,id_venta):
     direccion_envio_venta_id = ventas.id
     direccion = Direccion.objects.filter(id=direccion_envio_venta_id).values()
     cliente = Cliente.objects.filter(id=cliente_id).values()
-    contexto = {'ventas':ventas,'detalle':detalle,'direccion':direccion,'cliente':cliente,'productos':otherList}
+    contexto = {'ventas':ventas,'detalle':detalle,'direccion':direccion,'cliente':cliente,'productos':lista_nombre_productos}
     return render(request, 'Ventas/view.html', contexto)

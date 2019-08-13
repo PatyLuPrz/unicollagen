@@ -87,31 +87,30 @@ WSGI_APPLICATION = 'ControlPanel.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 # Base de datos local
-# DATABASES = {
-#     'default': {
-#         'init_command': "SET sql_mode='STRICT_ALL_TABLES'",
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'unicollagen',
-#         'USER': 'unicollagen',
-#         'PASSWORD': '101217.2019',
-#         'HOST': 'localhost',
-#         'PORT':'3306',
-#     }
-# }
-
-# Base de datos remota (Rapberry Server)
-
 DATABASES = {
     'default': {
         'init_command': "SET sql_mode='STRICT_ALL_TABLES'",
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'e93zda8gj0jpk5f7',
-        'USER': 'ozn0fadlkv93fc8x',
-        'PASSWORD': 'yp0fzhqj7os5cptc',
-        'HOST': 'if0ck476y7axojpg.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+        'NAME': 'unicollagen',
+        'USER': 'unicollagen',
+        'PASSWORD': '101217.2019',
+        'HOST': 'localhost',
         'PORT':'3306',
     }
 }
+
+# Base de datos remota (Rapberry Server)
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'unicollagen',
+#         'USER': 'unicollagen',
+#         'PASSWORD': 'unicollagen.2019',
+#         'HOST': 'localhost',
+#         'PORT':'3306',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -167,3 +166,5 @@ DATABASES['default'].update(db_from_env)
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 django_heroku.settings(locals())
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from Apps.Productos.models import Espanol, Ingles, Precio, Frances, Existencia
-from Apps.Productos.forms import EspanolForm, InglesForm
+from Apps.Productos.forms import EspanolForm, InglesForm, PreciosForm, StockForm
 from google.cloud import translate
 import json
 
@@ -56,7 +56,7 @@ def update(request, id_producto):
         return redirect('/productos')
     return render(request, 'Productos/update.html', {'form':form})
 
-def delete(request):
+def delete(request,id_producto):
     return render(request, 'Productos/delete.html')
 
 def ingles(request,id_producto):
@@ -134,3 +134,45 @@ def otheringlesupdate(request,id_producto):
             form.save()
         return redirect('/productos')
     return render(request, 'Productos/update.html', {'form':form})
+
+def insertPrecios(request):
+    if request.method == 'POST':
+        form = PreciosForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('/productos/')
+    else:
+        form = PreciosForm()
+    return render(request, 'Productos/insert_precios.html',{'form':form})
+
+def updatePrecios(request,id_producto):
+    precios = Precio.objects.get(producto_id = id_producto)
+    if request.method == 'GET':
+        form = PreciosForm(instance=precios)
+    else:
+        form = PreciosForm(request.POST, instance=precios)
+        if form.is_valid():
+            form.save()
+        return redirect('/productos')
+    return render(request, 'Productos/update_precios.html', {'form':form})
+
+def insertStock(request):
+    if request.method == 'POST':
+        form = StockForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('/productos')
+    else:
+        form = StockForm()
+    return render(request, 'Productos/insert_stock.html',{'form':form})
+
+def updateStock(request,id_producto):
+    stock = Existencia.objects.get(producto_id = id_producto)
+    if request.method == 'GET':
+        form = StockForm(instance=stock)
+    else:
+        form = StockForm(request.POST, instance=stock)
+        if form.is_valid():
+            form.save()
+        return redirect('/productos')
+    return render(request, 'Productos/update_stock.html', {'form':form})

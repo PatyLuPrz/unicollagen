@@ -162,8 +162,8 @@
             </tbody>
         </table>
     {% else %}
-        <hr><br><h4>No existe una trauduccion en frances para este producto.</h4> <br>
-        <a class="btn btn-primary" href="/productos/insert/frances/{{ producto.id }}"> Añadir traducción al ingles</a>
+        <hr><br><h4>No existe una traducción en frances para este producto.</h4> <br>
+        <a class="btn btn-primary" href="/productos/insert/frances/{{ producto.id }}"> Añadir traducción en frances </a>
     {% endif %}
 
     {% if precios %}
@@ -184,17 +184,18 @@
                 </tr>
             </tbody>
         </table>
-
+        <br><a class="btn btn-primary" href="/productos/update/precios/{{ producto.id }}" role="button"><small>Editar esta sección de la información</small></a><br>
     {% else %}
         <hr><br><h4>No se han encotrado registros de precios para este producto</h4>
-        <br> <a class="btn class="btn btn-outline-primary">Añade información de precios ahora.</a>
+        <br> <a class="btn class="btn btn-primary">Añade información de precios ahora.</a>
     {% endif %}
 
     {% if stock %}
         <hr><br><h4>Producto en stock: <small>{{ stock.existencias }}</small></h4>
+        <br><a class="btn btn-primary" href="/productos/update/stock/{{ producto.id }}" role="button"><small>Editar esta sección de la información</small></a><br>
     {% else %}
         <hr><br><h4>Producto en stock: <small>No hay información disponible</small></h4>
-        <br> <a class="btn class="btn btn-outline-primary">Añade información de stock ahora.</a>
+        <br> <a class="btn class="btn btn-primary">Añade información de stock ahora.</a>
     {% endif %}
 </div>
 

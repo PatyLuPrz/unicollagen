@@ -92,4 +92,48 @@ class InglesForm(forms.ModelForm):
             'beneficios_producto_ingles':forms.Textarea(attrs={'class':'form-control'}),
         }
 
+class PreciosForm(forms.ModelForm):
+    class Meta:
+        model = Precio
+
+        fields = [
+            'producto',
+            'precio_peso_mx',
+            'precio_dolar_eua',
+            'precio_euro',
+        ]
+
+        labels = {
+            'producto':'Producto al que pertenece estos precios',
+            'precio_peso_mx':'Precio en peso mx',
+            'precio_dolar_eua':'Precio en dolar estadounidense',
+            'precio_euro':'Precio en euro',
+        }
+
+        widgets = {
+            'producto':forms.Select(attrs={'class':'form-control'}),
+            'precio_peso_mx':forms.NumberInput(attrs={'class':'form-control'}),
+            'precio_dolar_eua':forms.NumberInput(attrs={'class':'form-control'}),
+            'precio_euro':forms.NumberInput(attrs={'class':'form-control'}),
+        }
+
+    
+class StockForm(forms.ModelForm):
+    class Meta:
+        model = Existencia
+
+        fields = [
+            'producto',
+            'existencias',
+        ]
+
+        labels = {
+            'producto':'Producto',
+            'existencias':'Existencia en stock (No acumulable)',
+        }
+
+        widgets = {
+            'producto':forms.Select(attrs={'class':'form-control'}),
+            'existencias':forms.NumberInput(attrs={'class':'form-control'}),
+        }
 
