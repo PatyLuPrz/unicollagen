@@ -93,7 +93,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'unicollagen',
         'USER': 'unicollagen',
-        'PASSWORD': '101217.2019',
+        'PASSWORD': 'unicollagen.1012',
         'HOST': 'notricsoluinc.ddns.net',
         'PORT':'3306',
     }
