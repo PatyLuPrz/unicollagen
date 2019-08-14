@@ -94,7 +94,7 @@ DATABASES = {
         'NAME': 'unicollagen',
         'USER': 'unicollagen',
         'PASSWORD': '101217.2019',
-        'HOST': 'localhost',
+        'HOST': 'notricsoluinc.ddns.net',
         'PORT':'3306',
     }
 }
