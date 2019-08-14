@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from Apps.Productos.models import Espanol, Ingles, Precio, Frances, Existencia
+from Apps.Productos.models import Espanol, Ingles, Precio, Existencia
 from Apps.Productos.forms import EspanolForm, InglesForm, PreciosForm, StockForm
 from google.cloud import translate
 import json
@@ -28,11 +28,6 @@ def view(request, id_producto):
         print("Error al encontrar coincidencias(ingles): ",a.args)
         ingles = None
     try:
-        frances = Frances.objects.get(producto_id = id_producto)
-    except Frances.DoesNotExist as b:
-        print("Error al encontrar coincidencias(frances): ",b.args)
-        frances = None
-    try:
         precios = Precio.objects.get(producto_id = id_producto)
     except Precio.DoesNotExist as c:
         print("Error al encontrar coincidencias(precio): ",c.args)
@@ -42,7 +37,7 @@ def view(request, id_producto):
     except Existencia.DoesNotExist as d:
         print("Error al encontrar coincidencias(existencias): ",d.args)
         stock = None
-    contexto = {'producto':producto,'ingles':ingles,'frances':frances,'precios':precios,'stock':stock}
+    contexto = {'producto':producto,'ingles':ingles,'precios':precios,'stock':stock}
     return render(request, 'Productos/view.html', contexto)
 
 def update(request, id_producto):

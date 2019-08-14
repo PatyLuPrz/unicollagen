@@ -1,5 +1,5 @@
 from django import forms
-from Apps.Productos.models import Espanol, Frances, Ingles, Existencia, Precio
+from Apps.Productos.models import Espanol, Ingles, Existencia, Precio
 
 class EspanolForm(forms.ModelForm):
     class Meta:

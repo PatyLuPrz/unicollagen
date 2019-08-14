@@ -108,64 +108,7 @@
         <hr><br><h4>No existe una traducción en ingles para este producto.</h4> <br>
         <a class="btn btn-primary" href="/productos/insert/ingles/{{ producto.id }}"> Añadir traducción al ingles</a>
     {% endif %}
-
-    {% if frances %}
-        <hr><br><h4>Traduccion en frances:</h4>
-        <table class="table table-borderless">
-            <tbody>
-                <tr>
-                    <td scope="row" style="width: auto;height: auto;">Nombre: </td>
-                    <td> <i> {{ frances.nombre_producto_frances }} </i> </td>
-                </tr>
-                <tr>
-                    <td scope="row" style="width: auto;height: auto;">Marca: </td>
-                    <td> <i> {{ frances.marca_producto_frances }} </i> </td>
-                </tr>
-                <tr>
-                    <td scope="row" style="width: auto; height: auto;">Presentación </td>
-                    <td>
-                        <i>
-                            {% if frances.presentacion_producto_frances == '1' %}    
-                                100 g
-                            {% elif frances.presentacion_producto_frances == '2' %}
-                                50 g
-                            {% else %}
-                                25 g
-                            {% endif %}
-                        </i>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row" style="width: auto; height: auto;">Tipo: </td>
-                    <td>
-                        <i> 
-                            {% if frances.tipo_producto_frances == '1' %}    
-                                Cream
-                            {% elif frances.tipo_producto_frances == '2' %}
-                                Other       
-                            {% endif %}
-                        </i>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row" style="width: auto; height: auto;">Descripción: </td>
-                    <td> <i> {{ frances.descripcion_producto_frances }} </i> </td>
-                </tr>
-                <tr>
-                    <td scope="row" style="width: auto;height: auto;" >Recomendación: </td>
-                    <td> <i> {{ frances.recomendacion_producto_frances }} </i> </td>
-                </tr>
-                <tr>
-                    <td scope="row" style="width: auto;height: auto;">Beneficios: </td>
-                    <td> <i> {{ frances.beneficios_producto_frances }} </i> </td>
-                </tr>
-            </tbody>
-        </table>
-    {% else %}
-        <hr><br><h4>No existe una traducción en frances para este producto.</h4> <br>
-        <a class="btn btn-primary" href="/productos/insert/frances/{{ producto.id }}"> Añadir traducción en frances </a>
-    {% endif %}
-
+    
     {% if precios %}
         <hr><br><h4>Precios de este producto:</h4>
         <table class="table table-striped table-inverse table-responsive">
