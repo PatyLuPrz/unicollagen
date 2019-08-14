@@ -1,1 +1,1 @@
-gunicorn = gunicorn -w 3 test:ControlPanel
+web: gunicorn ControlPanel.wsgi --log-file -
