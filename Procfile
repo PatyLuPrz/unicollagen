@@ -1,1 +1,1 @@
-web: gunicorn hello:ControlPanel
+gunicorn = gunicorn -w 3 test:ControlPanel
