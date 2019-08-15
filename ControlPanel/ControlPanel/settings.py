@@ -92,9 +92,9 @@ DATABASES = {
         'init_command': "SET sql_mode='STRICT_ALL_TABLES'",
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'unicollagen',
-        'USER': 'unicollagen',
-        'PASSWORD': 'unicollagen.1012',
-        'HOST': 'notricsoluinc.ddns.net',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
         'PORT':'3306',
     }
 }

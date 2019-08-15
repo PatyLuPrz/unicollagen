@@ -1,38 +1,48 @@
 {% extends 'Base/master.html' %}
 {% block content %}
 
-<div class="container">
-    {% if form.errors %}
-    <p>Nombre de usuario o contraseña incorrectos. Intenta de nuevo</p>
-    {% endif %}
-    
-    {% if next %}
-        {% if user.is_authenticated %}
-        <p>Tu cuenta no tiene los permisos necesarios para acceder a esta pagina.
-        <br>Inicia sesión con una cuenta con acceso para continuar.</p>
-        {% else %}
-        <p>Inicia sesión para ver esta pagina</p>
-        {% endif %}
-    {% endif %}
-    
-    <form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    
-      <div class="form-group">
-            {{ form.username.label_tag }} <br>
-             {{ form.username }} <br>
-            {{ form.password.label_tag }} <br>
-            {{ form.password }}
+<div class="text-center pt-2 pb-4 section-parallax" id="fondoLogin">
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="mx-auto col-md-6 col-10 bg-white p-5">
+            {% if form.errors %}
+            <p>Nombre de usuario o contraseña incorrectos. Intenta de nuevo</p>
+            {% endif %}
+            
+            {% if next %}
+                {% if user.is_authenticated %}
+                <p>Tu cuenta no tiene los permisos necesarios para acceder a esta pagina.
+                <br>Inicia sesión con una cuenta con acceso para continuar.</p>
+                {% else %}
+                <p>Inicia sesión para ver esta pagina</p>
+                {% endif %}
+            {% endif %}
+            
+            <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            
+              <div class="form-group">
+                    {{ form.username.label_tag }} <br>
+                    {{ form.username }} <br>
+                    {{ form.password.label_tag }} <br>
+                    {{ form.password }}
+              </div>
+            
+            <div>
+              <input class="form-control" type="submit" value="login" />
+              <input class="form-control" type="hidden" name="next" value="{{ next }}" />
+            </div>
+            </form>
+            
+            {# Assumes you setup the password_reset view in your URLconf #}
+            <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+        </div>
       </div>
-    
-    <div>
-      <input class="form-control" type="submit" value="login" />
-      <input class="form-control" type="hidden" name="next" value="{{ next }}" />
     </div>
-    </form>
+  </div>
+  
     
-    {# Assumes you setup the password_reset view in your URLconf #}
-    <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
-</div>
+
 
 {% endblock %}
