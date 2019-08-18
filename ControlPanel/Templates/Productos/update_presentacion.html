@@ -1,0 +1,14 @@
+{% extends 'Base/master.html' %}
+
+{% block content %}
+<div class="container">
+    <br>
+    <h4>Modificar información de presentación</h4>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+        <a class="btn btn-default" href="/productos">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

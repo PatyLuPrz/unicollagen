@@ -11,27 +11,119 @@
                 <td> <i> {{ producto.marca_producto }} </i> </td>
             </tr>
             <tr>
-                <td scope="row" style="width: auto; height: auto;">Presentación </td>
-                <td>
-                    <i>
-                        {% if producto.presentacion_producto == '1' %}    
-                            100 g
-                        {% elif producto.presentacion_producto == '2' %}
-                            50 g
-                        {% else %}
-                            25 g
-                        {% endif %}
-                    </i>
-                </td>
-            </tr>
-            <tr>
                 <td scope="row" style="width: auto; height: auto;">Tipo: </td>
                 <td>
                     <i> 
-                        {% if producto.tipo_producto == '1' %}    
-                            cremas
-                        {% elif producto.tipo_producto == '2' %}
-                            otro        
+                        {% if producto.tipo_producto == '01' %}    
+                            Shampoo
+                        {% elif producto.tipo_producto == '02' %}
+                            Acondicionadores
+                        {% elif producto.tipo_producto == '03' %}
+                            Lociones
+                        {% elif producto.tipo_producto == '04' %}
+                            Aceites
+                        {% elif producto.tipo_producto == '05' %}
+                            Cremas
+                        {% elif producto.tipo_producto == '06' %}
+                            Talcos
+                        {% elif producto.tipo_producto == '07' %}
+                            Productos para bebes - Niños
+                        {% elif producto.tipo_producto == '08' %}
+                            Maquillaje
+                        {% elif producto.tipo_producto == '09' %}
+                            Productos para el area de los ojos
+                        {% elif producto.tipo_producto == '10' %}
+                            Polvos faciales
+                        {% elif producto.tipo_producto == '11' %}
+                            Base de maquillaje
+                        {% elif producto.tipo_producto == '12' %}
+                            Maquillaje para las piernas y cuerpo
+                        {% elif producto.tipo_producto == '13' %}
+                            Lociones faciales
+                        {% elif producto.tipo_producto == '14' %}
+                            Cremas para manos y cuerpo
+                        {% elif producto.tipo_producto == '15' %}
+                            Mascaras faciales
+                        {% elif producto.tipo_producto == '16' %}
+                            Otros cosmeticos para la piel
+                        {% elif producto.tipo_producto == '17' %}
+                            Lápices labiales
+                        {% elif producto.tipo_producto == '18' %}
+                            Brillo labial
+                        {% elif producto.tipo_producto == '19' %}
+                            Otros productos para los labios
+                        {% elif producto.tipo_producto == '20' %}
+                            Jabones
+                        {% elif producto.tipo_producto == '21' %}
+                            Aceites de baño
+                        {% elif producto.tipo_producto == '22' %}
+                            Tabletas de baño
+                        {% elif producto.tipo_producto == '23' %}
+                            Sales de baño
+                        {% elif producto.tipo_producto == '24' %}
+                            Burbujas y geles de baño
+                        {% elif producto.tipo_producto == '25' %}
+                            Otros productos para el aseo e higiene corporal
+                        {% elif producto.tipo_producto == '26' %}
+                            Desodorantes
+                        {% elif producto.tipo_producto == '27' %}
+                            Productos para la hiegiene femenina
+                        {% elif producto.tipo_producto == '28' %}
+                            Otros productos desodorantes y antitranspirantes
+                        {% elif producto.tipo_producto == '29' %}
+                            Productos para el cabello
+                        {% elif producto.tipo_producto == '30' %}
+                            Base de esmalte
+                        {% elif producto.tipo_producto == '31' %}
+                            Crema para las uñas
+                        {% elif producto.tipo_producto == '32' %}
+                            Esmalte
+                        {% elif producto.tipo_producto == '33' %}
+                            Oleo para uñas
+                        {% elif producto.tipo_producto == '34' %}
+                            Removedor de esmalte
+                        {% elif producto.tipo_producto == '35' %}
+                            Otro producto para las uñas
+                        {% elif producto.tipo_producto == '36' %}
+                            Detrificos (Todo tipo)
+                        {% elif producto.tipo_producto == '37' %}
+                            Enjuagues bucales (No medicados)
+                        {% elif producto.tipo_producto == '38' %}
+                            Otros productos para la higiene bucal y dental
+                        {% elif producto.tipo_producto == '39' %}
+                            Bálsamo para después de afeitarse
+                        {% elif producto.tipo_producto == '40' %}
+                            Lociones para después de afeitarse
+                        {% elif producto.tipo_producto == '41' %}
+                            Cremas de afeitar
+                        {% elif producto.tipo_producto == '42' %}
+                            Jabones y espumas de afeitar
+                        {% elif producto.tipo_producto == '43' %}
+                            Otros productos de afeitar
+                        {% elif producto.tipo_producto == '44' %}
+                            Aceites bronceadores
+                        {% elif producto.tipo_producto == '45' %}
+                            Cremas bronceadoras
+                        {% elif producto.tipo_producto == '46' %}
+                            Protectores solares
+                        {% elif producto.tipo_producto == '47' %}
+                            Otros productos para el bronceado y proteccion solar
+                        {% elif producto.tipo_producto == '48' %}
+                            Ceras depiladoras
+                        {% elif producto.tipo_producto == '49' %}
+                            Cremas depiladoras
+                        {% elif producto.tipo_producto == '50' %}
+                            Aceite depilatorio
+                        {% elif producto.tipo_producto == '51' %}
+                            Gel depilatorio
+                        {% elif producto.tipo_producto == '52' %}
+                            Cremas blanqueadoras
+                        {% elif producto.tipo_producto == '53' %}
+                            Lociones blanqueadoras
+                        {% elif producto.tipo_producto == '54' %}
+                            Otros productos para el blanqueado de la piel
+                        {% else %}
+                            Otros
                         {% endif %}
                     </i>
                 </td>
@@ -64,27 +156,119 @@
                     <td> <i> {{ ingles.marca_producto_ingles }} </i> </td>
                 </tr>
                 <tr>
-                    <td scope="row" style="width: auto; height: auto;">Presentación </td>
-                    <td>
-                        <i>
-                            {% if ingles.presentacion_producto_ingles == '1' %}    
-                                100 g
-                            {% elif ingles.presentacion_producto_ingles == '2' %}
-                                50 g
-                            {% else %}
-                                25 g
-                            {% endif %}
-                        </i>
-                    </td>
-                </tr>
-                <tr>
                     <td scope="row" style="width: auto; height: auto;">Tipo: </td>
                     <td>
                         <i> 
-                            {% if ingles.tipo_producto_ingles == '1' %}    
-                                Cream
-                            {% elif ingles.tipo_producto_ingles == '2' %}
-                                Other       
+                            {% if producto.tipo_producto == '01' %}    
+                                Shampoo    
+                            {% elif producto.tipo_producto == '02' %}
+                                Conditioners    
+                            {% elif producto.tipo_producto == '03' %}
+                                Lotions    
+                            {% elif producto.tipo_producto == '04' %}
+                                Oils    
+                            {% elif producto.tipo_producto == '05' %}
+                                Creams    
+                            {% elif producto.tipo_producto == '06' %}
+                                Talc
+                            {% elif producto.tipo_producto == '07' %}
+                                Products for babies - Children
+                            {% elif producto.tipo_producto == '08' %}
+                                Makeup
+                            {% elif producto.tipo_producto == '09' %}
+                                Products for the eye area
+                            {% elif producto.tipo_producto == '10' %}
+                                Facial powders
+                            {% elif producto.tipo_producto == '11' %}
+                                Makeup base    
+                            {% elif producto.tipo_producto == '12' %}
+                                Makeup for the legs and body    
+                            {% elif producto.tipo_producto == '13' %}
+                                Facial lotions    
+                            {% elif producto.tipo_producto == '14' %}
+                                Creams for hands and body    
+                            {% elif producto.tipo_producto == '15' %}
+                                Facial masks    
+                            {% elif producto.tipo_producto == '16' %}
+                                Other skin cosmetics    
+                            {% elif producto.tipo_producto == '17' %}
+                                Lipsticks    
+                            {% elif producto.tipo_producto == '18' %}
+                                Lip gloss    
+                            {% elif producto.tipo_producto == '19' %}
+                                Other products for lips    
+                            {% elif producto.tipo_producto == '20' %}
+                                Soaps    
+                            {% elif producto.tipo_producto == '21' %}
+                                Bath oils    
+                            {% elif producto.tipo_producto == '22' %}
+                                Bath tablets    
+                            {% elif producto.tipo_producto == '23' %}
+                                Bath salts    
+                            {% elif producto.tipo_producto == '24' %}
+                                Bubbles and bath gels    
+                            {% elif producto.tipo_producto == '25' %}
+                                Other products for hygiene and body hygiene    
+                            {% elif producto.tipo_producto == '26' %}
+                                Deodorants    
+                            {% elif producto.tipo_producto == '27' %}
+                                Products for female hiegiene    
+                            {% elif producto.tipo_producto == '28' %}
+                                Other deodorant and antiperspirant products    
+                            {% elif producto.tipo_producto == '29' %}
+                                Hair products    
+                            {% elif producto.tipo_producto == '30' %}
+                                Enamel base    
+                            {% elif producto.tipo_producto == '31' %}
+                                Nail cream    
+                            {% elif producto.tipo_producto == '32' %}
+                                Enamel    
+                            {% elif producto.tipo_producto == '33' %}
+                                Nail Oil    
+                            {% elif producto.tipo_producto == '34' %}
+                                Polish remover    
+                            {% elif producto.tipo_producto == '35' %}
+                                Another product for nails    
+                            {% elif producto.tipo_producto == '36' %}
+                                Detrificos (All types)    
+                            {% elif producto.tipo_producto == '37' %}
+                                Mouthwashes (Not medicated)    
+                            {% elif producto.tipo_producto == '38' %}
+                                Other products for oral and dental hygiene    
+                            {% elif producto.tipo_producto == '39' %}
+                                After shave balm    
+                            {% elif producto.tipo_producto == '40' %}
+                                After shave lotions    
+                            {% elif producto.tipo_producto == '41' %}
+                                Shaving creams    
+                            {% elif producto.tipo_producto == '42' %}
+                                Soaps and shaving foams    
+                            {% elif producto.tipo_producto == '43' %}
+                                Other shaving products    
+                            {% elif producto.tipo_producto == '44' %}
+                                Tanning oils    
+                            {% elif producto.tipo_producto == '45' %}
+                                Suntan creams    
+                            {% elif producto.tipo_producto == '46' %}
+                                Sunscreens    
+                            {% elif producto.tipo_producto == '47' %}
+                                Other products for tanning and sun protection    
+                            {% elif producto.tipo_producto == '48' %}
+                                Waxing Waxes    
+                            {% elif producto.tipo_producto == '49' %}
+                                Epilating creams    
+                            {% elif producto.tipo_producto == '50' %}
+                                Depilatory oil    
+                            {% elif producto.tipo_producto == '51' %}
+                                Depilatory gel    
+                            {% elif producto.tipo_producto == '52' %}
+                                Whitening creams    
+                            {% elif producto.tipo_producto == '53' %}
+                                Whitening lotions    
+                            {% elif producto.tipo_producto == '54' %}
+                                Other skin whitening products    
+                            {% else %}
+                                Others    
                             {% endif %}
                         </i>
                     </td>
@@ -103,7 +287,7 @@
                 </tr>
             </tbody>
         </table>
-        
+        <br> <a class='btn btn-primary' href='/productos/update/ingles/{{ producto.id }}'> Editar esta traducción </a>
     {% else %}
         <hr><br><h4>No existe una traducción en ingles para este producto.</h4> <br>
         <a class="btn btn-primary" href="/productos/insert/ingles/{{ producto.id }}"> Añadir traducción al ingles</a>
@@ -138,7 +322,35 @@
         <br><a href="/productos/insert/stock" class="btn btn-primary" href="/productos/update/stock/{{ producto.id }}" role="button"><small>Editar esta sección de la información</small></a><br>
     {% else %}
         <hr><br><h4>Producto en stock: <small>No hay información disponible</small></h4>
-        <br> <a class="btn class="btn btn-primary">Añade información de stock ahora.</a>
+        <br> <a href="/productos/insert/stock" class="btn btn-primary">Añade información de stock ahora.</a>
+    {% endif %}
+    
+    {% if presentacion %}
+        <hr><br><h4>Presentaciones disponibles: </h4>
+        <ul>
+        {% for h in presentacion %}
+            {% if h.unidad_de_medida == '01' %}
+                <li>{{ h.cantidad }} Kilogramos  <a href="/productos/update/presentacion/{{ h.id }}"> Editar | <a href="/productos/delete/presentacion/{{ h.id }}"> Borrar </a>  </a> </li>
+            {% elif h.unidad_de_medida == '02' %}
+                <li>{{ h.cantidad }} Gramos <a href="/productos/update/presentacion/{{ h.id }}"> Editar </a> | <a href="/productos/delete/presentacion/{{ h.id }}"> Borrar </a> </li>
+            {% elif h.unidad_de_medida == '03' %}
+                <li>{{ h.cantidad }} Miligramos <a href="/productos/update/presentacion/{{ h.id }}"> Editar </a> | <a href="/productos/delete/presentacion/{{ h.id }}"> Borrar </a> </li><br>
+            {% elif h.unidad_de_medida == '04' %}
+                <li>{{ h.cantidad }} Litros <a href="/productos/update/presentacion/{{ h.id }}"> Editar </a> | <a href="/productos/delete/presentacion/{{ h.id }}"> Borrar </a> </li>
+            {% elif h.unidad_de_medida == '05' %}
+                <li>{{ h.cantidad }} Mililitros <a href="/productos/update/presentacion/{{ h.id }}"> Editar </a> | <a href="/productos/delete/presentacion/{{ h.id }}"> Borrar </a> </li>
+            {% elif h.unidad_de_medida == '06' %}
+                <li>{{ h.cantidad }} Onzas <a href="/productos/update/presentacion/{{ h.id }}"> Editar </a> | <a href="/productos/delete/presentacion/{{ h.id }}"> Borrar </a> </li>
+            {% elif h.unidad_de_medida == '07' %}
+                <li>{{ h.cantidad }} Libras <a href="/productos/update/presentacion/{{ h.id }}"> Editar </a> | <a href="/productos/delete/presentacion/{{ h.id }}"> Borrar </a> </li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+        <a href='/productos/insert/presentacion' class="btn btn-primary">Añadir nueva presentación</a>
+
+    {% else %}
+    <hr><br><h4>No hay información disponible</h4>
+    <a href='/productos/insert/presentacion' class="btn btn-primary">Añade información de presentaciones disponibles ahora.</a>
     {% endif %}
 </div>
 
